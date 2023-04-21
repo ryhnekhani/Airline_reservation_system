@@ -7,15 +7,15 @@ public class Flights {
     ArrayList<Flight> flightArrayList = new ArrayList<>();
 
     public void flightTable() {
-        Flight flight = new Flight("XW-23", "Tehran", "Yazd", "1402-12-10", "12:30", 100000, 34);
+        Flight flight = new Flight("xr-45", "Tehran", "Yazd", "1402-12-10", "12:30", 100000, 34);
         flightArrayList.add(flight);
-        flight = new Flight("WE-32", "Mashhaad", "Shiraz", "1402-11-20", "14:23", 230000, 200);
+        flight = new Flight("ws-12", "Mashhad", "Shiraz", "1402-11-20", "14:23", 230000, 200);
         flightArrayList.add(flight);
-        flight = new Flight("AF-12", "Ahvaz", "Kish", "1402-03-23", "15:34", 135000, 66);
+        flight = new Flight("sx-54", "Tehran", "Kish", "1402-03-23", "15:34", 135000, 66);
         flightArrayList.add(flight);
-        flight = new Flight("FE-12", "Tabriz", "Yazd", "1402-04-15", "08:00", 450000, 130);
+        flight = new Flight("rf-47", "Isfahan", "Khoramshahr", "1402-04-15", "08:00", 450000, 130);
         flightArrayList.add(flight);
-        flight = new Flight("GW-54", "Semnan", "Tabriz", "1402-01-12", "20:20", 700000, 89);
+        flight = new Flight("gm-69", "Mashhad", "Tabriz", "1402-01-12", "20:20", 700000, 3);
         flightArrayList.add(flight);
     }
 
