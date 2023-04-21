@@ -1,5 +1,6 @@
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class InputMenu {
@@ -9,11 +10,10 @@ public class InputMenu {
             System.out.println("\n<1> Sign in\n<2> Sign up");
             Scanner in = new Scanner(System.in);
             int command = in.nextInt();
-            if (command == 1)
+            if (command == 1) {
                 signIn();
-
-            Passenger.passengerMenu();
-
+                // Passenger.passengerMenu();
+            }
             if (command == 2)
                 signUp();
 
@@ -29,49 +29,54 @@ public class InputMenu {
             System.out.println("Enter your password:");
             int password2;
             password2 = in.nextInt();
-            int find_user = 1;
+            boolean find_user = false;
             User user = new User();
             InputMenu inputMenu = new InputMenu();
             if (username2.equals("Admin") && password2 == 12881288) {
                 Admin.adminMenu();
                 break;
             }
-            User user1 = new User();
-            for (User fuser : user1.usersinfo) {
+
+            //for (User fuser : userr.usersinfo)
+            for (int  i= 0;  i<User.usersinfo.size() ; i++) {
+                User fuser = User.usersinfo.get(i) ;
+
                 if (fuser == null)
                     break;
 
-                if (password2 == user.getPassword() && username2.equals(user.getUsername())) {
+                if (username2.equals(fuser.getUsername()) && password2 == fuser.getPassword() ) {
                     System.out.println("You have successfully signed in.");
-                    find_user = 0;
+                    Passenger.passengerMenu();
+                    find_user = true;
                     break;
                 }
 
             }
-            if (find_user == 1) {
+            if (!find_user) {
                 System.out.println("Sorry!you don't have an account.Please sign up.");
                 inputMenu.inputMenu();
             }
         }
     }
-    public void signUp()
-    {
-        System.out.println("Set a password and username to make an account:\n");
+
+    public void signUp() {
+        while (true){
+            System.out.println("Set a password and username to make an account:\n");
         System.out.println("username:");
         Scanner in = new Scanner(System.in);
-        User user =new User();
-        String username= in.nextLine();
-        //user.setUsername(username);
+        String username = in.nextLine();
+
         System.out.println("password:");
-        int  password=  in.nextInt();
-        // user.setPassword(password);
-        User user1 = new User() ;
-        User.usersinfo.add(user) ;
-        System.out.println("Your account is created successfully! now you can sign in.");
-        inputMenu();
+        int password = in.nextInt();
 
-
+            int charge=0;
+            User newuser = new User(username,password,charge);
+            newuser.setPassword(password);
+            newuser.setUsername(username);
+        User.usersinfo.add(newuser);
+        System.out.println("done");
+break;
     }
 
-
+}
 }

@@ -3,7 +3,6 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class Flights {
-    static int counter = 10;
     ArrayList<Flight> flightArrayList = new ArrayList<>();
 
     public void flightTable() {
@@ -32,7 +31,7 @@ public class Flights {
         System.out.println("destination:");
         String destination;
         destination = in.nextLine();
-        System.out.println(" date:");
+        System.out.println("date:");
         String date;
         date = in.nextLine();
         System.out.println("time:");
@@ -41,7 +40,7 @@ public class Flights {
         System.out.println(" price:");
         int  price;
         price = in.nextInt();
-        System.out.println("  seats:");
+        System.out.println("seats:");
         int seats;
         seats = in.nextInt();
         Flight flight = new Flight(flightId, origin, destination, date, time, price, seats);
@@ -106,6 +105,74 @@ public class Flights {
     }
 
     public void searchFlight(){
-        System.out.println("Sorry! this section does not work right now.It will be fixed 3 days later. ");
+        //System.out.println("Sorry! this section does not work right now.");
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("1.Search based on flight ID");
+            System.out.println("2.Search based on origin");
+            System.out.println("3.Search based on destination");
+            System.out.println("4.Search based on date");
+            System.out.println("5.Search based on time");
+            System.out.println("6.Search based on price");
+
+            int  command = 0;
+             command = scanner.nextInt();
+
+            switch( command){
+                case 1 ->{
+                    System.out.println("Enter your flight ID");
+                    String flightID = scanner.next();
+                    for (Flight flight :flightArrayList) {
+                        if(flight.getFlightId().contains(flightID))
+                            System.out.print(flight.toString());
+                    }
+                }
+
+                case 2 ->{
+                    System.out.println("Enter your origin");
+                    String origin = scanner.next();
+
+                    for (Flight flight : flightArrayList) {
+                        if(flight.getOrigin().contains(origin))
+                            System.out.print(flight.toString());
+                    }
+                }
+                case 3 ->{
+                    System.out.println("Enter your destination");
+                    String destination = scanner.next();
+
+                    for (Flight flight : flightArrayList) {
+                        if(flight.getDestination().contains(destination))
+                            System.out.print(flight.toString());
+                    }
+                }
+                case 4 ->{
+                    System.out.println("Enter your date(YYYY/MM/DD)");
+                    String date = scanner.next();
+
+                    for (Flight flight : flightArrayList) {
+                        if(flight.getDate().equals(date))
+                            System.out.print(flight.toString());
+                    }
+                }
+                case 5 ->{
+                    System.out.println("Enter your time(HH:MM)");
+                    String time = scanner.next();
+                    for (Flight flight : flightArrayList) {
+                        if(flight.getTime().equals(time))
+                            System.out.print(flight.toString());
+                    }
+                }
+                case 6 ->{
+                    System.out.println("Enter your min Price");
+                    int min = scanner.nextInt();
+                    System.out.println("Enter your max Price");
+                    int max = scanner.nextInt();
+                    for (Flight flight : flightArrayList) {
+                        if(flight.getPrice() >= min && flight.getPrice() <= max)
+                            System.out.print(flight.toString());
+                    }
+                }
+            }
+        }
     }
-}
+

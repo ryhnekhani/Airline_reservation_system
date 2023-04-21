@@ -5,6 +5,10 @@ public class User {
     public static ArrayList<User> usersinfo = new ArrayList<>();
     String username;
 
+    public User() {
+
+    }
+
     public String getUsername() {
         return username;
     }
@@ -32,6 +36,11 @@ public class User {
         this.charge = charge;
     }
 
+    public User(String username, int password, int charge) {
+        this.username = username;
+        this.password = password;
+        this.charge = charge;
+    }
 
     public void changePassword()
     {
