@@ -41,17 +41,4 @@ public class Passenger {
         return command;
     }
 
-    public static void search() {
-        Scanner in = new Scanner(System.in);
-        //"If you want to search based on the dist"
-        String searchword = in.nextLine();
-        Flights flightTable = new Flights();
-
-        for (int i = 0; i < Flights.counter; i++) {
-//            flightTable.table[i]
-
-        }
-
-    }
-
 }
